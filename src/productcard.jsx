@@ -1,17 +1,43 @@
 function Productcard({ name, description, price, avai }) {
   return (
-    <div style={{ border: "1px solid black", padding: "10px", margin: "10px" }}>
-      <h2>Product Name: {name}</h2>
-      <p>Product Description: {description}</p>
-      <p>Price: ₹{price}</p>
-      <p>
-          Available:{" "}
-          <span style={{ color: avai ? "green" : "red" }}>
-              {avai ? "Available" : "Not Available"}
-          </span>
+    <div className="product-card">
+
+      <div className="product-image">
+        📱
+      </div>
+
+      <h2>{name}</h2>
+
+      <p className="description">
+        {description}
       </p>
-      <button>Add to Cart</button>
-      <button>Buy Now</button>
+
+      <p className="price">
+        ₹{price.toLocaleString("en-IN")}
+      </p>
+
+      <p className={avai ? "available" : "not-available"}>
+        {avai ? "✓ Available" : "✕ Not Available"}
+      </p>
+
+      <div className="button-container">
+
+        <button
+          className="cart-btn"
+          disabled={!avai}
+        >
+          Add to Cart
+        </button>
+
+        <button
+          className="buy-btn"
+          disabled={!avai}
+        >
+          Buy Now
+        </button>
+
+      </div>
+
     </div>
   );
 }

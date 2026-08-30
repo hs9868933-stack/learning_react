@@ -1,108 +1,249 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-
+/* Main Root */
 
 #root {
   min-height: 100vh;
+  padding: 40px 30px;
+}
+
+/* Heading */
+
+h1 {
+  text-align: center;
+  color: #222;
+  font-size: 36px;
+  margin-bottom: 35px;
+}
+
+/* Product container */
+
+.product-container {
+  max-width: 1300px;
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+/* Product Card */
+
+.product-card {
+  background-color: white;
+
+  padding: 22px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+
+  transition: all 0.3s ease;
+
+  border: 1px solid #eee;
+}
+
+/* Card Hover */
+
+.product-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* Product Image */
+
+.product-image {
+  height: 120px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 30px;
-  box-sizing: border-box;
+
   background-color: #f5f5f5;
-}
 
-/* Product card */
-#root > div {
-  width: 280px;
-  min-height: 220px;
-  padding: 20px;
-  margin: 0;
-  border: none !important;
   border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  text-align: left;
-  box-sizing: border-box;
+
+  font-size: 60px;
+
+  margin-bottom: 18px;
 }
 
-/* Product name */
-#root > div h2 {
-  margin-top: 0;
+/* Product Name */
+
+.product-card h2 {
   color: #222;
+
+  font-size: 21px;
+
+  margin: 10px 0;
 }
 
-/* Product information */
-#root > div p {
-  color: #555;
-  font-size: 16px;
+/* Description */
+
+.description {
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  min-height: 42px;
+}
+
+/* Price */
+
+.price {
+  color: #111;
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  margin: 15px 0;
+}
+
+/* Available */
+
+.available {
+  color: green;
+
+  font-weight: bold;
+
+  font-size: 14px;
+}
+
+/* Not Available */
+
+.not-available {
+  color: red;
+
+  font-weight: bold;
+
+  font-size: 14px;
 }
 
 /* Buttons */
-#root > div button {
-  padding: 10px 15px;
-  margin-right: 8px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #646cff;
-  color: white;
+
+.button-container {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 18px;
 }
 
-/* Button hover */
-#root > div button:hover {
+.button-container button {
+  flex: 1;
+
+  padding: 10px 8px;
+
+  border: none;
+
+  border-radius: 7px;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+/* Add to Cart */
+
+.cart-btn {
+  background-color: #646cff;
+}
+
+.cart-btn:hover {
   background-color: #4f55d9;
 }
 
-.cout{
+/* Buy Now */
+
+.buy-btn {
+  background-color: #16a34a;
+}
+
+.buy-btn:hover {
+  background-color: #12823b;
+}
+
+/* Disabled Button */
+
+.button-container button:disabled {
+  background-color: #aaa;
+
+  cursor: not-allowed;
+
+  opacity: 0.7;
+}
+
+/* Counter */
+
+.cout {
   display: flex;
+
+  justify-content: center;
+
+  margin-top: 40px;
 }
 
 
-h1{
-  color: black;
+/* ------------------------- */
+/* Responsive Design */
+/* ------------------------- */
+
+/* Laptop */
+
+@media (max-width: 1100px) {
+
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+/* Tablet */
+
+@media (max-width: 800px) {
+
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 550px) {
+
+  #root {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .product-container {
+    grid-template-columns: 1fr;
+  }
+
 }
